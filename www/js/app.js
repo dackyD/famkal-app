@@ -27,6 +27,13 @@ angular.module('starter').config(function ($stateProvider, $urlRouterProvider) {
     // Each state's controller can be found in controllers.js
     $stateProvider
 
+
+        .state('login', {
+            url: '/login',
+            templateUrl: 'templates/login.html',
+            controller: 'LoginCtrl'
+        })
+
         // setup an abstract state for the tabs directive
         .state('tab', {
             url: "/tab",
@@ -59,7 +66,7 @@ angular.module('starter').config(function ($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-         .state('tab.settings', {
+        .state('tab.settings', {
             url: '/settings',
             views: {
                 'tab-settings': {
