@@ -15,9 +15,18 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$balanced:                        #3bbc96 !default; // DEFAULT APP color
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
+
+
+// bottom tab
+.tabs-balanced > .tabs, .tabs.tabs-balanced {
+  background-color: #333;
+}
 

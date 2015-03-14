@@ -3,22 +3,48 @@ Create tabs with an icon and label, using the tabs-positive style.
 Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
-<ion-tabs class="tabs-icon-top tabs-positive">
+<ion-tabs class="tabs-icon-top tabs-balanced">
 
-  <!-- Dashboard Tab -->
-  <ion-tab title="Status" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/dash">
-    <ion-nav-view name="tab-dash"></ion-nav-view>
+
+    <!-- Calendar -->
+  <ion-tab title="Kalender" icon-off="ion-ios-calendar-outline" icon-on="ion-ios-calendar" href="#/tab/calendar">
+    <ion-nav-view name="tab-calendar"></ion-nav-view>
   </ion-tab>
+
+  <!-- My Family -->
+  <ion-tab title="Min Familie" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/family">
+    <ion-nav-view name="tab-family"></ion-nav-view>
+  </ion-tab>
+
+  <!-- New Event -->
+  <ion-tab title="Ny hendelse" icon-off="ion-ios-plus-outline" icon-on="ion-ios-plus" href="#/tab/event">
+    <ion-nav-view name="tab-event"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Innstillinger -->
+  <ion-tab title="Innstillinger" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/settings">
+     <ion-nav-view name="tab-settings"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Voicemail -->
+  <ion-tab title="Voicemal" icon-off="ion-ios-recording-outline" icon-on="ion-ios-recording" href="#/tab/voicemail">
+    <ion-nav-view name="tab-voicemail"></ion-nav-view>
+  </ion-tab>
+
+   <!-- Dashboard Tab -->
+  <!-- <ion-tab title="Status" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/dash">
+     <ion-nav-view name="tab-dash"></ion-nav-view>
+   </ion-tab> -->
+
 
   <!-- Chats Tab -->
-  <ion-tab title="Chats" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/chats">
-    <ion-nav-view name="tab-chats"></ion-nav-view>
-  </ion-tab>
+  <!-- <ion-tab title="Chats" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/chats">
+     <ion-nav-view name="tab-chats"></ion-nav-view>
+   </ion-tab> -->
 
   <!-- Account Tab -->
-  <ion-tab title="Account" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/account">
-    <ion-nav-view name="tab-account"></ion-nav-view>
-  </ion-tab>
-
+  <!-- <ion-tab title="Account" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/account">
+     <ion-nav-view name="tab-account"></ion-nav-view>
+   </ion-tab> -->
 
 </ion-tabs>
