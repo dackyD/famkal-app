@@ -45,21 +45,28 @@
     -->
    <ion-nav-view></ion-nav-view>
     <script id="templates/login.html" type="text/ng-template">
-      <ion-view view-title="Familiekalender">
-        <ion-content>
-          <div class="list">
+      <ion-view view-title="Familiekalender" hide-nav-bar="true">
+        <ion-content class="login">
+        <div class="row center">
+        <img src="img/F-Cal-In-App-Icon.png">
+        </div>
+
+          <h2 id="title">Familiekalenderen</h2>
+          <div class="list list-inset">
             <label class="item item-input">
-              <span class="input-label">Brukernavn</span>
-              <input type="text" ng-model="user.username">
+              <input type="text" ng-model="user.username" placeholder="Brukernavn">
             </label>
+            <div class="padding">
+
+            </div>
             <label class="item item-input">
-              <span class="input-label">Passord</span>
-              <input type="password" ng-model="user.password">
+              <input type="password" ng-model="user.password" placeholder="Passord">
             </label>
           </div>
-          <div class="padding">
+
+          <div class="padding loginButton">
             <button class="button button-block button-balanced" ng-click="signIn(user)">
-              Sign-In
+              Logg på
             </button>
           </div>
         </ion-content>

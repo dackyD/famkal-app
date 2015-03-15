@@ -7593,3 +7593,39 @@ a.button {
 
 .tabs-balanced > .tabs, .tabs.tabs-balanced {
   background-color: #333; }
+
+.login {
+  background: url(../img/Familiekalenderen-iPhone6.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+  .login h2 {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-top: 8%; }
+  .login img {
+    margin: 18% auto 0 auto; }
+  .login ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: white;
+    font-weight: 500;
+    font-size: 18px; }
+  .login .list {
+    margin-top: 8%;
+    background: inherit; }
+    .login .list label {
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      width: 80%; }
+    .login .list span {
+      color: white; }
+    .login .list input {
+      color: white; }
+
+button.button-block, button.button-full, .button-full > button.button, input.button.button-block {
+  width: 80%;
+  margin: 0 auto; }

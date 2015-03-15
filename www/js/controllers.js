@@ -20,17 +20,28 @@ angular.module('starter.controllers', [])
         };
     })
 
-    .controller('LoginCtrl', function ($scope, $state, $ionicLoading, $timeout) {
-        $scope.signIn = function () {
+    .controller('LoginCtrl', function ($scope, $state, $ionicLoading, $timeout, $http) {
+        $scope.signIn = function (user) {
             $ionicLoading.show({
-                template: 'Logger inn...'
+                template: 'Loading ...'
+            });
+            console.log('user', user);
+
+            var uri = 'http://172.24.0.225:9000/api/mobile/login';
+            $http({url: uri, method: 'POST', data: angular.toJson(user), cache: false}).then(function (res) {
+                console.log('res', res.data);
+                $ionicLoading.hide();
+                $state.go('tab.calendar');
+            }, function (err) {
+                console.log(err);
+                $ionicLoading.hide();
             });
 
-            $timeout(function() {
-                $state.go('tab.calendar');
-                $ionicLoading.hide();
-            }, 2000);
 
+            //$timeout(function() {
+            //    $state.go('tab.calendar');
+            //    $ionicLoading.hide();
+            //}, 2000);
 
     };
 })
