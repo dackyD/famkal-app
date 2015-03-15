@@ -7595,7 +7595,7 @@ a.button {
   background-color: #333; }
 
 .login {
-  background: url(/img/Familiekalenderen-iPhone6.png) no-repeat center center fixed;
+  background: url(../img/Familiekalenderen-iPhone6.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7608,13 +7608,17 @@ a.button {
     margin-top: 50px; }
   .login img {
     margin: 50px auto 0 auto; }
+  .login ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: white; }
   .login .list {
     margin-top: 30px;
     background: inherit; }
     .login .list label {
       margin: 0 auto;
       background-color: rgba(255, 255, 255, 0.2);
-      border: none; }
+      border: none;
+      width: 80%; }
     .login .list button {
       margin: 0 auto; }
     .login .list span {
