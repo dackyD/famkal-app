@@ -1,9 +1,13 @@
 <ion-view title="Familiekalenderen">
   <ion-content >
 
-      <div class="padding titleCal">
-          <button class="button ion-ios-arrow-back button-clear" ng-click="calendarControl.prev()"></button>{{calendarControl.getTitle()}}
-          <button class="button ion-ios-arrow-forward button-clear" ng-click="calendarControl.next()"></button>
+      <div class="row">
+          <div class="col col-20"></div>
+          <div class="col col-80">
+              <h4><button class="button ion-chevron-left button-clear" ng-click="calendarControl.prev()"></button>
+              {{calendarControl.getTitle()}}
+              <button class="button ion-chevron-right button-clear" ng-click="calendarControl.next()"></button></h4>
+          </div>
       </div>
     <mwl-calendar
             calendar-events="events"

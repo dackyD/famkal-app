@@ -25,23 +25,23 @@ angular.module('starter.controllers', [])
             $ionicLoading.show({
                 template: 'Loading ...'
             });
-            console.log('user', user);
-
-            var uri = 'http://172.24.0.225:9000/api/mobile/login';
-            $http({url: uri, method: 'POST', data: angular.toJson(user), cache: false}).then(function (res) {
-                console.log('res', res.data);
-                $ionicLoading.hide();
-                $state.go('tab.calendar');
-            }, function (err) {
-                console.log(err);
-                $ionicLoading.hide();
-            });
-
-
-            //$timeout(function() {
-            //    $state.go('tab.calendar');
+            //console.log('user', user);
+            //
+            //var uri = 'http://172.24.0.225:9000/api/mobile/login';
+            //$http({url: uri, method: 'POST', data: angular.toJson(user), cache: false}).then(function (res) {
+            //    console.log('res', res.data);
             //    $ionicLoading.hide();
-            //}, 2000);
+            //    $state.go('tab.calendar');
+            //}, function (err) {
+            //    console.log(err);
+            //    $ionicLoading.hide();
+            //});
+
+
+            $timeout(function() {
+                $state.go('tab.calendar');
+                $ionicLoading.hide();
+            }, 2000);
 
     };
 })
