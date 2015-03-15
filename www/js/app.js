@@ -5,7 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','mwl.calendar']).run(function ($ionicPlatform) {
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','mwl.calendar']).run(function ($ionicPlatform, $state, $rootScope, $timeout, $ionicPopup) {
+
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -16,6 +17,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','m
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
         }
+
+
+        $ionicPlatform.registerBackButtonAction(function (event) {
+            var childStates = ['app.playerdetails', 'app.matchdetails'];
+            if (childStates.indexOf($state.current.name) < 0) {
+                $ionicPopup.confirm({
+                    title: 'System varsel',
+                    template: 'Er du sikker på at du skal lukke appen?',
+                    okType: 'button-balanced'
+                }).then(function (res) {
+                    console.log('res', res);
+                    if (res) {
+                        $rootScope.$broadcast('onPause');
+                        $timeout(function () {
+                            navigator.app.exitApp();
+                        }, 0);
+                    }
+                });
+            }
+            else {
+                navigator.app.backHistory();
+            }
+        }, 100);
+
+
     });
 
     // angular-bootstrap-calendar use-iso-week //
@@ -27,8 +53,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','m
 
 });
 
-angular.module('starter').config(function ($stateProvider, $urlRouterProvider) {
+angular.module('starter').config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
+    $ionicConfigProvider.tabs.position('bottom');
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
