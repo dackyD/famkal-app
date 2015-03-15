@@ -82,7 +82,21 @@ angular.module('starter').config(function ($stateProvider, $urlRouterProvider, $
             views: {
                 'tab-calendar': {
                     templateUrl: 'templates/tab-calendar.html',
-                    controller: 'CalendarCtrl'
+                    controller: 'CalendarCtrl',
+                    resolve: {
+                        events: function(Events){
+                            return Events.getHttp();
+                        }
+                    }
+                }
+            }
+        })
+        .state('tab.calendar-detail', {
+            url: '/calendar/:eventId',
+            views: {
+                'tab-calendar': {
+                    templateUrl: 'templates/calendar-detail.html',
+                    controller: 'CalendarDetailCtrl'
                 }
             }
         })

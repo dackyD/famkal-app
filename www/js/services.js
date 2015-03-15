@@ -47,4 +47,38 @@ angular.module('starter.services', [])
       return null;
     }
   };
-});
+})
+
+.factory('Events', function($http){
+
+      var events = null;
+
+
+
+  return {
+
+    getHttp: function(){
+      return $http.get('http://172.24.0.225:9000/api/mobile/events').then(function(res){
+        console.log('events', res.data);
+        return events = res.data;
+      });
+    },
+    all: function (){
+      console.log(events);
+      return events;
+    },
+    get: function(eventId)  {
+      console.log(eventId);
+      for (var i = 0; i < events.length; i++) {
+        if (events[i].id == parseInt(eventId)) {
+          return events[i];
+        }
+      }
+      return null;
+    }
+
+  }
+
+})
+
+;

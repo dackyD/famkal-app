@@ -1,0 +1,31 @@
+<ion-view view-title="{{event.title}}">
+    <ion-content >
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Starter</span>
+                <input type="text" placeholder="Starter" ng-model="event.starts_at | date: 'd. MMM yyyy   HH.mm'">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Slutter</span>
+                <input type="text" placeholder="Slutter" ng-model="event.ends_at | date: 'd. MMM yyyy   HH.mm'">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Sted</span>
+                <input type="text" placeholder="Sted" ng-model="event.location">
+            </label>
+            </div>
+        <div class="padding"></div>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Beskrivelse</span>
+                <textarea placeholder="Beskrivelse" ng-model="event.description" ></textarea>
+            </label>
+        </div>
+        <button class="button button-full button-balanced">
+            Lagre endringer
+        </button>
+        <button class="button button-full button-assertive">
+            Slett hendelse
+        </button>
+    </ion-content>
+</ion-view>

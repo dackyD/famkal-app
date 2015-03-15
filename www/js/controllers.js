@@ -34,7 +34,15 @@ angular.module('starter.controllers', [])
 
     };
 })
-    .controller('CalendarCtrl', function($scope, $stateParams, $modal, $http) {
+
+    .controller('CalendarDetailCtrl', function ($scope, $stateParams,Events) {
+
+        $scope.event = Events.get($stateParams.eventId);
+        console.log('$scope.event', $scope.event);
+
+    })
+
+    .controller('CalendarCtrl', function($scope, $stateParams, $modal, $http, $state, events) {
 
         var currentYear = moment().year();
         var currentMonth = moment().month();
@@ -46,45 +54,48 @@ angular.module('starter.controllers', [])
             console.log($scope.title);
         };
 
-        //$http.get('http://172.24.0.225:9000/api/mobile/events').then(function(events){
-        //    console.log('events', events.data);
-        //    $scope.events = events.data;
-        //
-        //
+        $scope.events = events;
+        console.log($scope.events);
+
+
+
+        //Events.getHttp().then(function(res){
+        //    $scope.events = res;
+        //   console.log($scope.events);
         //});
 
-        $scope.events = [
-          {
-            title: 'hackathon',
-            type: 'info',
-            starts_at: new Date(currentYear,currentMonth,currentDay),
-            ends_at: new Date(currentYear,currentMonth,currentDay+2),
-            editable: false,
-            deletable: false
-          },
-            {
-                title: 'hackathonII',
-                type: 'info',
-                starts_at: "2015-03-16T05:30:00.000Z",
-                ends_at: '2015-03-16T06:00:00.000Z',
-                editable: false,
-                deletable: false
-            },
-          {
-            title: 'hackathon 2',
-            type: 'warning',
-            starts_at: moment(new Date()).add(1, 'month'),
-            ends_at: moment(new Date()).add(1, 'month').add(5, 'days'),
-            editable: true,
-            deletable: false
-          }
-
-        ];
+        //$scope.events = [
+        //  {
+        //    title: 'hackathon',
+        //    type: 'info',
+        //    starts_at: new Date(currentYear,currentMonth,currentDay),
+        //    ends_at: new Date(currentYear,currentMonth,currentDay+2),
+        //    editable: false,
+        //    deletable: false
+        //  },
+        //    {
+        //        title: 'hackathonII',
+        //        type: 'info',
+        //        starts_at: "2015-03-16T05:30:00.000Z",
+        //        ends_at: '2015-03-16T06:00:00.000Z',
+        //        editable: false,
+        //        deletable: false
+        //    },
+        //  {
+        //    title: 'hackathon 2',
+        //    type: 'warning',
+        //    starts_at: moment(new Date()).add(1, 'month'),
+        //    ends_at: moment(new Date()).add(1, 'month').add(5, 'days'),
+        //    editable: true,
+        //    deletable: false
+        //  }
+        //
+        //];
 
         $scope.calendarView = 'month';
         $scope.calendarDay = new Date();
 
-        console.log($scope.calendarDay);
+       // console.log($scope.calendarDay);
 
         $scope.setCalendarToToday = function() {
             $scope.calendarDay = new Date();
@@ -94,7 +105,45 @@ angular.module('starter.controllers', [])
 
 
         $scope.eventClicked = function(event) {
-            console.dir(event);
+            console.log(event);
+            $state.go('tab.calendar-detail', {eventId: event.id});
+        };
+
+
+        function showModal(action, event) {
+            $modal.open({
+                templateUrl: 'modalContent.html',
+                controller: function($scope, $modalInstance) {
+                    $scope.$modalInstance = $modalInstance;
+                    $scope.action = action;
+                    $scope.event = event;
+                }
+            });
+        }
+
+        //$scope.eventClicked = function(event) {
+        //    //showModal('Clicked', event);
+        //};
+
+        $scope.eventEdited = function(event) {
+           console.log('edit');
+           // showModal('Edited', event);
+        };
+
+        $scope.eventDeleted = function(event) {
+           // showModal('Deleted', event);
+            console.log('del');
+        };
+
+        $scope.setCalendarToToday = function() {
+            $scope.calendarDay = new Date();
+        };
+
+        $scope.toggle = function($event, field, event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            event[field] = !event[field];
         };
 })
 ;
