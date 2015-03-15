@@ -38,11 +38,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     color: white;
     text-transform: uppercase;
     font-weight: 400;
-    margin-top: 50px;
+    margin-top: 8%;
   }
 
   img {
-    margin: 50px auto 0 auto;
+    margin: 18% auto 0 auto;
   }
 
   background: url(../img/Familiekalenderen-iPhone6.png) no-repeat center center fixed;
@@ -51,13 +51,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   -o-background-size: cover;
   background-size: cover;
 
-  ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    white;
+  ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
   }
 
-
   .list {
-    margin-top: 30px;
+    margin-top: 8%;
     background: inherit;
     label {
       margin: 0 auto;
@@ -65,16 +67,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
       border: none;
       width: 80%
     }
-    button {
-      margin: 0 auto;
-    }
     span {
       color: white;
     }
     input {
       color: white;
     }
-
   }
+
+}
+
+button.button-block, button.button-full, .button-full > button.button, input.button.button-block {
+  width: 80%;
+  margin: 0 auto;
 }
 
