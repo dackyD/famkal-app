@@ -3,5 +3,11 @@
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.0.0-rc.0"
+  },
+  "dependencies": {
+    "angular-bootstrap-calendar": "~0.7.4",
+    "bootstrap": "~3.3.2",
+    "moment": "~2.9.0",
+    "angular-ui-bootstrap": "~0.12.1"
   }
 }

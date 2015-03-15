@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services']).run(function ($ionicPlatform) {
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','mwl.calendar']).run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -17,6 +17,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services']).
             StatusBar.styleDefault();
         }
     });
+
+    // angular-bootstrap-calendar use-iso-week //
+    moment.locale('en', {
+        week : {
+            dow : 1 // Monday is the first day of the week
+        }
+    });
+
 });
 
 angular.module('starter').config(function ($stateProvider, $urlRouterProvider) {
@@ -46,7 +54,8 @@ angular.module('starter').config(function ($stateProvider, $urlRouterProvider) {
             url: '/calendar',
             views: {
                 'tab-calendar': {
-                    templateUrl: 'templates/tab-calendar.html'
+                    templateUrl: 'templates/tab-calendar.html',
+                    controller: 'CalendarCtrl'
                 }
             }
         })
